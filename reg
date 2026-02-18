@@ -40,3 +40,19 @@ reg add hkey_local_machine\software\policies\microsoft\fve /v rdvrecovery /t REG
 reg add hkey_local_machine\software\policies\microsoft\fve /v rdvenforceusercert /t REG_DWORD /d 1 /f
 #13th
 reg add hkey_local_machine\software\policies\microsoft\fve /v rdvpassphrase /t REG_DWORD /d 0 /f
+
+
+
+
+_____________
+
+
+
+reg add HKLM\SOFTWARE\Policies\Microsoft\FVE /v FDVRequireActiveDirectoryBackup /t REG_DWORD /d 0 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\FVE /v OSHideRecoveryPage /t REG_DWORD /d 1 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\FVE /v OSManageDRA /t REG_DWORD /d 0 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\FVE /v FDVHideRecoveryPage /t REG_DWORD /d 1 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\FVE /v OSRecoveryKey /t REG_DWORD /d 0 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\FVE /v EnableBDEWithNoTPM /t REG_DWORD /d 0 /f
+
+XXXXXXXXXXXXXXXXXXXXXXXXX
