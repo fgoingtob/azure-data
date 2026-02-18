@@ -56,3 +56,48 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\FVE /v OSRecoveryKey /t REG_DWORD /d 0 
 reg add HKLM\SOFTWARE\Policies\Microsoft\FVE /v EnableBDEWithNoTPM /t REG_DWORD /d 0 /f
 
 XXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+# Ensure script runs in 64-bit PowerShell when deployed from Intune
+if ($env:PROCESSOR_ARCHITEW6432 -eq "AMD64") {
+    Write-Output "Restarting script in 64-bit PowerShell..."
+    Start-Process "$env:WINDIR\SysNative\WindowsPowerShell\v1.0\powershell.exe" `
+        -ArgumentList "-ExecutionPolicy Bypass -File `"$PSCommandPath`"" `
+        -Wait
+    Exit
+}
+
+$RegistryPath = "HKLM:\SOFTWARE\Policies\Microsoft\FVE"
+
+# Create FVE key if it does not exist
+if (!(Test-Path $RegistryPath)) {
+    New-Item -Path $RegistryPath -Force | Out-Null
+}
+
+# Define registry values
+$BitLockerSettings = @{
+    "FDVRequireActiveDirectoryBackup" = 0
+    "OSHideRecoveryPage"              = 1
+    "OSManageDRA"                     = 0
+    "FDVHideRecoveryPage"             = 1
+    "OSRecoveryKey"                   = 0
+    "EnableBDEWithNoTPM"              = 0
+}
+
+# Apply each setting
+foreach ($Setting in $BitLockerSettings.GetEnumerator()) {
+    New-ItemProperty `
+        -Path $RegistryPath `
+        -Name $Setting.Key `
+        -Value $Setting.Value `
+        -PropertyType DWord `
+        -Force | Out-Null
+}
+
+Write-Output "All BitLocker registry policies have been successfully configured."
+
+
+
+YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+
+
