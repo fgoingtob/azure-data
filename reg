@@ -1,0 +1,42 @@
+#1st
+reg add hkey_local_machine\software\policies\microsoft\fve /v FDVRequireActiveDirectoryBackup /t REG_DWORD /d 0 /f
+#2nd
+reg add hkey_local_machine\software\policies\microsoft\fve /v OSHideRecoveryPage /t REG_DWORD /d 1 /f
+#3rd
+reg add hkey_local_machine\software\policies\microsoft\fve /v osmanagedra /t REG_DWORD /d 0 /f
+#4th
+reg add hkey_local_machine\software\policies\microsoft\fve /v fdvhiderecoverypage /t REG_DWORD /d 1 /f
+#5th
+reg add hkey_local_machine\software\policies\microsoft\fve /v osrecoverykey /t REG_DWORD /d 0 /f
+#6th
+reg add hkey_local_machine\software\policies\microsoft\fve /v enablebdewithnotpm /t REG_DWORD /d 0 /f
+
+_____________________________________________________________
+
+
+#first
+reg add hkey_local_machine\software\policies\microsoft\fve /v rdvhardwareencryption /t REG_DWORD /d 0 /f
+#second
+reg add hkey_local_machine\software\policies\microsoft\fve /v rdvrecoverykey /t REG_DWORD /d 0 /f
+#third
+reg add hkey_local_machine\software\policies\microsoft\fve /v rdvrequireactivedirectorybackup /t REG_DWORD /d 0 /f
+#fourth
+reg add hkey_local_machine\software\policies\microsoft\fve /v rdvactivedirectoryinfotostore /t REG_DWORD /d 1 /f
+#fifth
+reg add hkey_local_machine\software\policies\microsoft\fve /v rdvhiderecoverypage /t REG_DWORD /d 1 /f
+#sixth
+reg add hkey_local_machine\software\policies\microsoft\fve /v rdvmanagedra /t REG_DWORD /d 1 /f
+#7th
+reg add hkey_local_machine\software\policies\microsoft\fve /v rdvmanagedra /t REG_DWORD /d 1 /f
+#8th
+reg add hkey_local_machine\software\policies\microsoft\fve /v osrecoverypassword /t REG_DWORD /d 1 /f
+#9th
+reg add hkey_local_machine\software\policies\microsoft\fve /v rdvrecoverypassword /t REG_DWORD /d 0 /f
+#10th
+reg add hkey_local_machine\software\policies\microsoft\fve /v rdvdiscoveryvolumetype /t REG_DWORD /d 0 /f
+#11th
+reg add hkey_local_machine\software\policies\microsoft\fve /v rdvrecovery /t REG_DWORD /d 1 /f
+#12th
+reg add hkey_local_machine\software\policies\microsoft\fve /v rdvenforceusercert /t REG_DWORD /d 1 /f
+#13th
+reg add hkey_local_machine\software\policies\microsoft\fve /v rdvpassphrase /t REG_DWORD /d 0 /f
